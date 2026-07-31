@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Process — Meredith Lyon</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lexend+Peta:wght@300;400&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+
+    <a class="site-name" href="index.html">
+      Meredith Lyon
+    </a>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+    >
+      Menu
+    </button>
+
+    <nav
+      id="site-nav"
+      class="site-nav"
+      aria-label="Primary navigation"
+    >
+      <a href="projects.html">Projects</a>
+      <a href="process.html">Process</a>
+      <a href="about.html">About</a>
+    </nav>
+
+  </header>
+
+ <main>
+
+  <section
+    class="section process-section"
+    aria-labelledby="process-title"
+  >
+
+    <div class="section-heading">
+      <h1 id="process-title">Process</h1>
+    </div>
+
+    <div class="process-intro">
+      <p>
+        The making of the spectacle.
+      </p>
+    </div>
+
+    <!-- Large looping video banner -->
+    <div class="process-banner">
+
+      <video
+        id="spectacle-banner"
+        class="process-banner-video"
+        autoplay
+        muted
+        playsinline
+        preload="auto"
+        aria-label="The making of the spectacle"
+      >
+
+        <source
+          src="assets/Spectacle.mp4"
+          type="video/mp4"
+        >
+
+        Your browser does not support HTML video.
+
+      </video>
+
+    </div>
+
+    <!-- Process image and video grid -->
+    <div class="process-grid">
+
+      <figure class="process-card">
+
+        <div class="process-placeholder">
+          Add process image
+        </div>
+
+        <figcaption>
+          <strong>Reconstruction</strong>
+
+          <span>
+            Sorting and rebuilding shredded currency before
+            textile assembly.
+          </span>
+        </figcaption>
+
+      </figure>
+
+      <figure class="process-card">
+
+        <div class="process-placeholder">
+          Add CMYK image
+        </div>
+
+        <figcaption>
+          <strong>CMYK studies</strong>
+
+          <span>
+            In-progress separations, registration tests,
+            and printing experiments.
+          </span>
+        </figcaption>
+
+      </figure>
+
+      <figure class="process-card">
+
+        <video
+          class="process-video"
+          controls
+          playsinline
+          preload="metadata"
+          poster="assets/video-thumbnail.jpg"
+        >
+
+          <source
+            src="assets/Spectacle.mp4"
+            type="video/mp4"
+          >
+
+          Your browser does not support HTML video.
+
+        </video>
+
+        <figcaption>
+          <strong>Making Money</strong>
+
+          <span>
+            Process documentation of shredding,
+            reconstruction, and assembly.
+          </span>
+        </figcaption>
+
+      </figure>
+
+      <figure class="process-card">
+
+        <img
+          src="assets/1000-oblique-detail.jpg"
+          alt="Close detail of reconstructed currency strips."
+        >
+
+        <figcaption>
+          <strong>Surface and structure</strong>
+
+          <span>
+            Close study of folded edges, seams,
+            and accumulated labor.
+          </span>
+        </figcaption>
+
+      </figure>
+
+    </div>
+
+  </section>
+
+</main>
