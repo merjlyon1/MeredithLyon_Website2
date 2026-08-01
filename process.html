@@ -50,34 +50,37 @@
 
   </header>
 
- <main>
+<main>
 
   <section
     class="section process-section"
     aria-labelledby="process-title"
   >
 
-    <div class="section-heading">
-      <h1 id="process-title">Process</h1>
-    </div>
+    <header class="process-header">
 
-    <div class="process-intro">
-      <p>
+      <h1 id="process-title">
+        Process
+      </h1>
+
+      <p class="process-intro-text">
         The making of the spectacle.
       </p>
-    </div>
 
-    <!-- Large looping video banner -->
-    <div class="process-banner">
+    </header>
+
+
+    <!-- Opening moving-image banner -->
+
+    <figure class="process-hero">
 
       <video
         id="spectacle-banner"
-        class="process-banner-video"
+        class="process-hero-video"
         autoplay
         muted
         playsinline
-        preload="auto"
-        aria-label="The making of the spectacle"
+        preload="metadata"
       >
 
         <source
@@ -85,98 +88,216 @@
           type="video/mp4"
         >
 
-        Your browser does not support HTML video.
-
       </video>
 
-    </div>
+    </figure>
 
-    <!-- Process image and video grid -->
-    <div class="process-grid">
 
-      <figure class="process-card">
+    <!-- Loose visual field -->
 
-        <div class="process-placeholder">
-          Add process image
-        </div>
+    <section
+      class="process-field"
+      aria-label="Studio process and documentation"
+    >
+
+
+      <!-- Shredded material close-up -->
+
+      <figure class="process-item process-item-large process-item-left">
+
+        <img
+          src="assets/shredded_100.jpg"
+          alt="Close-up of shredded strips of United States currency."
+          loading="lazy"
+        >
 
         <figcaption>
-          <strong>Reconstruction</strong>
-
-          <span>
-            Sorting and rebuilding shredded currency before
-            textile assembly.
-          </span>
+          Decommissioned and artist-shredded currency.
         </figcaption>
 
       </figure>
 
-      <figure class="process-card">
 
-        <div class="process-placeholder">
-          Add CMYK image
-        </div>
+      <!-- CMYK screen-printing tests -->
+
+      <figure class="process-item process-item-medium process-item-right">
+
+        <img
+          src="assets/CMYK_Process.jpg"
+          alt="Individual CMYK screen-print layers arranged for registration."
+          loading="lazy"
+        >
 
         <figcaption>
-          <strong>CMYK studies</strong>
-
-          <span>
-            In-progress separations, registration tests,
-            and printing experiments.
-          </span>
+          CMYK separations and registration tests.
         </figcaption>
 
       </figure>
 
-      <figure class="process-card">
+
+      <figure class="process-item process-item-small process-item-left-offset">
+
+        <img
+          src="assets/CMYK_Process2.jpg"
+          alt="Layered CMYK screen print of a dollar bill on fabric."
+          loading="lazy"
+        >
+
+      </figure>
+
+
+      <!-- In-progress construction -->
+
+      <figure class="process-item process-item-tall process-item-right-offset">
+
+        <img
+          src="assets/100_Process1.jpg"
+          alt="Reconstructed bills pinned to translucent mesh during assembly."
+          loading="lazy"
+        >
+
+        <figcaption>
+          Reconstructing and positioning individual bills.
+        </figcaption>
+
+      </figure>
+
+
+      <!-- Process video -->
+
+      <figure class="process-item process-item-video process-item-left">
 
         <video
-          class="process-video"
+          class="process-inline-video"
           controls
           playsinline
           preload="metadata"
-          poster="assets/video-thumbnail.jpg"
         >
 
           <source
-            src="assets/Spectacle.mp4"
+            src="assets/MakingDollar.mp4"
             type="video/mp4"
           >
-
-          Your browser does not support HTML video.
 
         </video>
 
         <figcaption>
-          <strong>Making Money</strong>
-
-          <span>
-            Process documentation of shredding,
-            reconstruction, and assembly.
-          </span>
+          Reconstructing currency by hand.
         </figcaption>
 
       </figure>
 
-      <figure class="process-card">
+
+      <!-- Draped work -->
+
+      <figure class="process-item process-item-large process-item-center">
 
         <img
-          src="assets/1000-oblique-detail.jpg"
-          alt="Close detail of reconstructed currency strips."
+          src="assets/100_Process2.jpg"
+          alt="Reconstructed currency textile folded and draped during fabrication."
+          loading="lazy"
+        >
+
+      </figure>
+
+
+      <!-- Installation documentation -->
+
+      <figure class="process-item process-item-wide process-item-left">
+
+        <img
+          src="assets/100_Process3.jpg"
+          alt="Installation setup for the reconstructed currency work in Union Station."
+          loading="lazy"
         >
 
         <figcaption>
-          <strong>Surface and structure</strong>
-
-          <span>
-            Close study of folded edges, seams,
-            and accumulated labor.
-          </span>
+          Installation and documentation at Union Station.
         </figcaption>
 
       </figure>
 
-    </div>
+
+      <!-- Flag in landscape -->
+
+      <figure class="process-item process-item-medium process-item-right">
+
+        <img
+          src="assets/100_Process4.jpg"
+          alt="Currency flag installed on a fence near an oil pump."
+          loading="lazy"
+        >
+
+      </figure>
+
+
+      <figure class="process-item process-item-small process-item-left-offset">
+
+        <img
+          src="assets/100_Process5.jpg"
+          alt="Small woven currency study on a white background."
+          loading="lazy"
+        >
+
+        <figcaption>
+          Early structural and material studies.
+        </figcaption>
+
+      </figure>
+
+
+      <!-- Second process video -->
+
+      <figure class="process-item process-item-video process-item-right-offset">
+
+        <video
+          class="process-inline-video"
+          controls
+          playsinline
+          preload="metadata"
+        >
+
+          <source
+            src="assets/IMG_1072.mp4"
+            type="video/mp4"
+          >
+
+        </video>
+
+      </figure>
+
+
+      <!-- Bill with insect / interruption -->
+
+      <figure class="process-item process-item-tall process-item-left">
+
+        <img
+          src="assets/100_Process6.jpg"
+          alt="Partially reconstructed dollar bill on mesh with an insect resting on its surface."
+          loading="lazy"
+        >
+
+      </figure>
+
+
+      <!-- Flag in desert -->
+
+      <figure class="process-item process-item-wide process-item-center">
+
+        <img
+          src="assets/100_Process7.jpg"
+          alt="A person holding the translucent currency flag in a desert landscape."
+          loading="lazy"
+        >
+
+        <figcaption>
+          Testing the work through movement, light, and landscape.
+        </figcaption>
+
+      </figure>
+
+
+    </section>
 
   </section>
 
