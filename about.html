@@ -2,106 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
-
-  <title>About — Meredith Lyon</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lexend+Peta:wght@300;400&display=swap"
-    rel="stylesheet"
-  >
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lexend+Peta:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="About interdisciplinary artist Meredith Lyon.">
+  <title>About — Meredith Lyon</title>
 </head>
-
 <body>
-
   <header class="site-header">
-
-    <a class="site-name" href="index.html">
-      Meredith Lyon
-    </a>
-
-    <button
-      class="menu-button"
-      type="button"
-      aria-expanded="false"
-      aria-controls="site-nav"
-    >
-      Menu
-    </button>
-
-    <nav
-      id="site-nav"
-      class="site-nav"
-      aria-label="Primary navigation"
-    >
+    <a class="site-name" href="index.html">Meredith Lyon</a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
       <a href="projects.html">Projects</a>
       <a href="process.html">Process</a>
       <a href="about.html">About</a>
-
     </nav>
-
   </header>
-
   <main>
-
-<section class="section">
-
-    <div class="section-heading">
-        <h1>About</h1>
-    </div>
-
-    <div class="about-text">
-
-        <p>
-          Meredith Lyon is a Seattle-based interdisciplinary artist whose practice 
-          investigates systems of value, spectacle, and feminist labor through 
-          reconstructed currency, textiles, labor-intensive processes, and 
-          experimental printmaking. Her work explores the tension between material 
-          and meaning, questioning how value is assigned, preserved, and performed 
-          through both economic and cultural systems.
-        </p>
-
-        <p>
-          Lyon received a BFA in Fashion Design from Pratt Institute before earning 
-          a Master of Urban Planning from Hunter College. Originally trained in 
-          fashion design and apparel construction, she now works as a transportation
-           planner and public servant, designing and analyzing paratransit systems 
-           that support mobility for elderly and disabled communities. 
-           This transition from fashion to public infrastructure fundamentally 
-           reshaped her understanding of institutional systems, bureaucracy, and 
-           the invisible structures that organize everyday life. Those experiences 
-           now inform a studio practice that moves fluidly between textile 
-           construction, installation, and printmaking.
-        </p>
-
-  
-
-    </div>
-
-    <div class="about-contact">
-
+    <section class="section" aria-labelledby="about-title">
+      <div class="section-heading"><h1 id="about-title">About</h1></div>
+      <div class="about-text">
+        <p>Meredith Lyon is a Seattle-based interdisciplinary artist whose practice investigates systems of value, spectacle, and feminist labor through reconstructed currency, textiles, labor-intensive processes, and experimental printmaking. Her work explores the tension between material and meaning, questioning how value is assigned, preserved, and performed through economic and cultural systems.</p>
+        <p>Lyon received a BFA in Fashion Design from Pratt Institute before earning a Master of Urban Planning from Hunter College. Originally trained in fashion design and apparel construction, she now works as a transportation planner and public servant, designing and analyzing paratransit systems that support mobility for older adults and disabled communities. Her transition from fashion to public infrastructure fundamentally reshaped her understanding of institutional systems, bureaucracy, and the invisible structures that organize everyday life. Those experiences now inform a studio practice that moves fluidly between textile construction, installation, and printmaking.</p>
+      </div>
+      <div class="about-contact">
         <h2>Contact</h2>
-
-        <p>
-            For exhibitions, commissions, publications, or studio inquiries:
-        </p>
-
-        <a
-            href="mailto:merjlyon@gmail.com"
-            class="contact-link">
-            merjlyon@gmail.com
-        </a>
-
-    </div>
-
-</section>
+        <p>For exhibitions, commissions, publications, or studio inquiries:</p>
+        <a class="contact-link" href="mailto:merjlyon@gmail.com">merjlyon@gmail.com</a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><p>© <span id="year"></span> Meredith Lyon</p></footer>
+  <script src="script.js"></script>
+</body>
 </html>
