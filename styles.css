@@ -43,7 +43,7 @@ button { font: inherit; }
   background-size: cover;
   background-position: center;
   filter: grayscale(15%) contrast(90%);
-  transform: scale(1.70);
+  transform: scale(1.7);
   opacity: .6;
 }
 .entry-overlay {
