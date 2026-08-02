@@ -72,9 +72,10 @@ button {
   inset: -5%;
   background-image: url("assets/1000-front-detail.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center 60%;
+
   filter: grayscale(15%) contrast(90%);
-  transform: scale(1.7);
+  transform: scale(1.9);
   opacity: 0.6;
 }
 
@@ -97,7 +98,7 @@ button {
 .entry-content {
   position: relative;
   z-index: 2;
-  width: min(92vw, 700px);
+  width: min(92vw, 900px);
   padding: 42px;
   color: #fff;
   text-align: center;
