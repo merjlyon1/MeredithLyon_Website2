@@ -72,10 +72,10 @@ button {
   inset: -5%;
   background-image: url("assets/1000-front-detail.jpg");
   background-size: cover;
-  background-position: center 60%;
+  background-position: center 70%;
 
   filter: grayscale(15%) contrast(90%);
-  transform: scale(1.9);
+  transform: scale(2);
   opacity: 0.6;
 }
 
