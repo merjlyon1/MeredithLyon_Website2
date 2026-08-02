@@ -75,7 +75,7 @@ button {
   background-position: center 70%;
 
   filter: grayscale(15%) contrast(90%);
-  transform: scale(2);
+  transform: scale(2.1);
   opacity: 0.6;
 }
 
