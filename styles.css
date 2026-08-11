@@ -650,3 +650,335 @@ h3 {
     transition: none;
   }
 }
+
+/* =================================
+   ARCHIVE PROJECT
+================================= */
+
+.archive-project {
+  margin-bottom: clamp(120px, 16vw, 220px);
+}
+
+
+/* Cover */
+
+.archive-cover-wrap {
+  margin: 0;
+}
+
+.archive-cover {
+  display: block;
+  width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+}
+
+
+/* Project metadata */
+
+.archive-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-top: 22px;
+}
+
+.archive-category {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.archive-meta h2 {
+  margin: 0 0 7px;
+  font-size: clamp(1rem, 1.3vw, 1.4rem);
+}
+
+.archive-year {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+
+/* View Project */
+
+.archive-toggle,
+.archive-close {
+  border: 0;
+  padding: 0 0 3px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.archive-toggle:hover,
+.archive-close:hover {
+  border-bottom-color: var(--text);
+}
+
+
+/* Expanded content */
+
+.archive-more {
+  margin-top: clamp(70px, 10vw, 140px);
+}
+
+.archive-project-intro {
+  max-width: 620px;
+  margin-bottom: clamp(90px, 12vw, 160px);
+}
+
+.archive-project-intro p {
+  margin: 0;
+  color: var(--muted);
+}
+
+
+/* Individual look */
+
+.archive-look {
+  margin-bottom: clamp(120px, 16vw, 220px);
+}
+
+.archive-look-heading {
+  margin-bottom: 20px;
+}
+
+.archive-look-heading p {
+  margin: 0;
+  color: var(--muted);
+
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+
+/* Large editorial detail */
+
+.archive-look-detail {
+  width: min(72%, 900px);
+  margin: 0 auto clamp(60px, 9vw, 120px);
+}
+
+.archive-look-detail img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+/* Front / Back documentation */
+
+.archive-look-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 44px);
+  align-items: start;
+}
+
+.archive-look-pair figure {
+  margin: 0;
+}
+
+.archive-look-pair img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.archive-look-pair figcaption {
+  margin-top: 9px;
+
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+/* Close button */
+
+.archive-close {
+  display: block;
+  margin: clamp(70px, 10vw, 140px) auto 0;
+}
+
+
+/* Mobile */
+
+@media (max-width: 760px) {
+
+  .archive-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .archive-look-detail {
+    width: 100%;
+  }
+
+  .archive-look-pair {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+}
+
+.archive-extra-detail {
+  width: 100%;
+  max-width: 900px;
+  margin: clamp(70px, 10vw, 140px) 0 0;
+}
+
+.archive-extra-detail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* =================================
+   FLEABAG DOGWEAR
+================================= */
+
+.fleabag-flow {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(70px, 10vw, 150px);
+}
+
+
+/* Individual images */
+
+.fleabag-image {
+  margin: 0;
+}
+
+.fleabag-image img,
+.fleabag-pair img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+/* Image sizes */
+
+.fleabag-small {
+  width: min(38%, 480px);
+}
+
+.fleabag-medium {
+  width: min(55%, 700px);
+}
+
+.fleabag-large {
+  width: min(72%, 950px);
+}
+
+.fleabag-wide {
+  width: min(86%, 1120px);
+}
+
+
+/* Alignment */
+
+.fleabag-left {
+  align-self: flex-start;
+}
+
+.fleabag-right {
+  align-self: flex-end;
+}
+
+.fleabag-center {
+  align-self: center;
+}
+
+.fleabag-left-offset {
+  align-self: flex-start;
+  margin-left: clamp(5%, 10vw, 150px);
+}
+
+
+/* Paired images */
+
+.fleabag-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 46px);
+
+  width: min(82%, 1080px);
+  margin: 0 auto;
+  align-items: start;
+}
+
+.fleabag-pair figure {
+  margin: 0;
+}
+
+.fleabag-pair-offset {
+  align-self: flex-end;
+  margin-right: 0;
+}
+
+.fleabag-pair-narrow {
+  width: min(65%, 850px);
+}
+
+
+/* Small hover treatment */
+
+.fleabag-image img,
+.fleabag-pair img {
+  transition: transform 0.5s ease;
+}
+
+.fleabag-image:hover img,
+.fleabag-pair figure:hover img {
+  transform: scale(1.005);
+}
+
+
+/* Mobile */
+
+@media (max-width: 760px) {
+
+  .fleabag-flow {
+    gap: 70px;
+  }
+
+  .fleabag-small,
+  .fleabag-medium,
+  .fleabag-large,
+  .fleabag-wide,
+  .fleabag-pair,
+  .fleabag-pair-narrow {
+    width: 100%;
+  }
+
+  .fleabag-left,
+  .fleabag-right,
+  .fleabag-center,
+  .fleabag-left-offset {
+    align-self: stretch;
+    margin-left: 0;
+  }
+
+  .fleabag-pair {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+}

@@ -52,3 +52,71 @@ function requestParallaxUpdate() {
 window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
 window.addEventListener("resize", requestParallaxUpdate);
 requestParallaxUpdate();
+
+document
+  .querySelectorAll(".archive-toggle")
+  .forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+      const targetId =
+        button.getAttribute("aria-controls");
+
+      const target =
+        document.getElementById(targetId);
+
+      if (!target) return;
+
+      const isOpen =
+        button.getAttribute("aria-expanded") === "true";
+
+      button.setAttribute(
+        "aria-expanded",
+        String(!isOpen)
+      );
+
+      target.hidden = isOpen;
+
+      button.textContent =
+        isOpen
+          ? "View project"
+          : "Close project";
+
+    });
+
+  });
+
+  document
+  .querySelectorAll(".archive-close")
+  .forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+      const targetId = button.dataset.closeProject;
+      const target = document.getElementById(targetId);
+
+      if (!target) return;
+
+      target.hidden = true;
+
+      const openButton = document.querySelector(
+        `.archive-toggle[aria-controls="${targetId}"]`
+      );
+
+      if (openButton) {
+        openButton.setAttribute("aria-expanded", "false");
+        openButton.textContent = "View project";
+      }
+
+      const project = button.closest(".archive-project");
+
+      if (project) {
+        project.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+
+    });
+
+  });
