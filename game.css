@@ -1,0 +1,764 @@
+/* =================================
+   GAME PAGE
+================================= */
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #111;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+body * {
+  cursor: none !important;
+}
+
+
+/* =================================
+   TICKET
+================================= */
+
+.ticket-stage {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+  perspective: 1600px;
+}
+
+.ticket {
+  position: relative;
+  width: min(92vw, 760px);
+  aspect-ratio: 2 / 3;
+
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(.2, .7, .2, 1);
+}
+
+.ticket.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.ticket-face {
+  position: absolute;
+  inset: 0;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.ticket-front {
+  position: relative;
+}
+
+.ticket-back {
+  transform: rotateY(180deg);
+}
+
+.ticket-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* =================================
+   SCRATCH LAYERS
+================================= */
+
+
+.scratch-canvas {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+.scratch-silver-layer {
+  z-index: 10;
+
+  pointer-events: none;
+}
+
+.scratch-canvas {
+  z-index: 20;
+
+  touch-action: none;
+}
+
+
+/* individual silver areas */
+
+.silver-zone {
+  position: absolute;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      115deg,
+      #8d8d89 0%,
+      #d8d8d3 18%,
+      #999995 37%,
+      #eeeeea 53%,
+      #989894 71%,
+      #cfcfca 100%
+    );
+
+  box-shadow:
+    inset 0 0 6px rgba(0, 0, 0, 0.18);
+}
+
+
+/* subtle metallic noise */
+
+.silver-zone::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.32;
+
+  background-image:
+    repeating-linear-gradient(
+      15deg,
+      rgba(255,255,255,0.15) 0,
+      rgba(255,255,255,0.15) 1px,
+      rgba(0,0,0,0.06) 1px,
+      rgba(0,0,0,0.06) 3px
+    );
+
+  mix-blend-mode: overlay;
+}
+
+
+/* =================================
+   TICKET CONTROLS
+================================= */
+
+/* Invisible click area over lottery logo */
+
+.ticket-logo-button {
+  position: absolute;
+
+  top: 1%;
+  right: 1%;
+
+  width: 12%;
+  height: 10%;
+
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  z-index: 100;
+}
+
+
+/* Invisible click area over printed Return */
+
+.game-return-button {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 18%;
+  height: 8%;
+
+  display: block;
+
+  z-index: 100;
+}
+
+
+/* =================================
+   PENNY CURSOR
+================================= */
+
+.penny-cursor {
+  position: fixed;
+
+  left: 0;
+  top: 0;
+
+  width: 64px;
+  height: 64px;
+
+  z-index: 2000001;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  transform: translate(-50%, -50%);
+}
+
+.penny-cursor.is-visible {
+  opacity: 1;
+}
+
+.penny-cursor img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  filter:
+    drop-shadow(
+      1px
+      2px
+      2px
+      rgba(0, 0, 0, 0.3)
+    );
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 760px) {
+
+  .ticket-stage {
+    padding: 10px;
+  }
+
+  .ticket {
+    width: min(96vw, 760px);
+  }
+
+}
+
+.ticket-front {
+  pointer-events: auto;
+}
+
+.ticket-back {
+  pointer-events: none;
+}
+
+.ticket.is-flipped .ticket-front {
+  pointer-events: none;
+}
+
+.ticket.is-flipped .ticket-back {
+  pointer-events: auto;
+}
+
+/* =================================
+   SCRATCH DEBRIS
+================================= */
+
+.scratch-debris {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 50000;
+
+  pointer-events: none;
+
+  overflow: visible;
+}
+
+body {
+  position: relative;
+}
+
+.scratch-debris-piece {
+  position: absolute;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e1e1dd,
+      #aaa9a4 45%,
+      #f2f2ee 70%,
+      #91918d
+    );
+
+  border-radius:
+    60% 35% 55% 40%;
+
+  pointer-events: none;
+
+  transform-origin: center;
+}
+
+
+
+.penny-cursor {
+  transition:
+    transform 0.08s ease;
+}
+
+.penny-cursor.is-scratching {
+  transform:
+    translate(-50%, -50%)
+    rotate(-18deg)
+    scale(0.94);
+}
+
+/* =================================
+   GAME RESULT UNDERLAYER
+================================= */
+
+.game-results-layer {
+  position: absolute;
+  inset: 0;
+
+  z-index: 15;
+
+  pointer-events: none;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-weight: 700;
+
+  color: #111;
+}
+
+
+/* =================================
+   BONUS RESULTS
+================================= */
+
+.bonus-result {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  font-size:
+    clamp(10px, 1.7vw, 17px);
+
+  line-height: 1;
+}
+
+
+/*
+  These match our existing
+  scratch-zone coordinates.
+*/
+
+.bonus-result-1 {
+  left: 11.67%;
+  top: 32.18%;
+  width: 14.58%;
+  height: 9.52%;
+}
+
+.bonus-result-2 {
+  left: 33.12%;
+  top: 32.18%;
+  width: 14.58%;
+  height: 9.52%;
+}
+
+.bonus-result-3 {
+  left: 54.37%;
+  top: 32.18%;
+  width: 14.58%;
+  height: 9.52%;
+}
+
+.bonus-result-4 {
+  left: 75.31%;
+  top: 32.18%;
+  width: 14.58%;
+  height: 9.52%;
+}
+
+
+/* =================================
+   YOUR NUMBERS
+================================= */
+
+.your-number-results {
+  position: absolute;
+
+  left: 14.58%;
+  top: 50.84%;
+
+  width: 72.4%;
+  height: 6.11%;
+
+  display: grid;
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  align-items: center;
+
+  text-align: center;
+
+  font-size:
+    clamp(10px, 1.8vw, 18px);
+}
+
+
+/* =================================
+   WINNING NUMBERS
+================================= */
+
+.winning-number-results {
+  position: absolute;
+
+  left: 14.79%;
+  top: 58.69%;
+
+  width: 72.08%;
+  height: 39.58%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  grid-template-rows:
+    repeat(5, 1fr);
+
+  align-items: center;
+
+  text-align: center;
+
+  font-size:
+    clamp(9px, 1.6vw, 16px);
+}
+
+
+.number-result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+/* =================================
+   CHECK TICKET
+================================= */
+
+.check-ticket-button {
+  position: fixed;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 999999;
+
+  padding: 18px 30px;
+
+  border: 4px outset #ddd;
+
+  background: #c0c0c0;
+  color: #000;
+
+  font-family: "Times New Roman", serif;
+
+  font-size: clamp(22px, 3vw, 38px);
+  font-weight: normal;
+
+cursor: pointer !important;
+
+  box-shadow:
+    4px 4px 0 #000;
+}
+
+.check-ticket-button:hover {
+  background: #ddd;
+}
+
+.check-ticket-button:active {
+  border-style: inset;
+
+  transform:
+    translate(-48%, -48%);
+}
+
+.check-ticket-button[hidden] {
+  display: none;
+}
+
+.silver-zone {
+  position: absolute;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      115deg,
+      #8d8d89 0%,
+      #d8d8d3 18%,
+      #999995 37%,
+      #eeeeea 53%,
+      #989894 71%,
+      #cfcfca 100%
+    );
+
+  color: #111;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-weight: 700;
+}
+
+
+/* BONUS */
+
+.silver-bonus-result {
+  position: relative;
+  z-index: 2;
+
+  padding: 4px;
+
+  font-size:
+    clamp(9px, 1.5vw, 16px);
+
+  text-align: center;
+}
+
+
+/* YOUR NUMBERS */
+
+.silver-your-numbers {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  align-items: center;
+
+  text-align: center;
+
+  font-size:
+    clamp(15px, 2.2vw, 23px);
+
+  line-height: 1;
+}
+
+
+/* 25-NUMBER FIELD */
+.silver-winning-numbers {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  grid-template-rows:
+    repeat(5, 1fr);
+
+  text-align: center;
+}
+
+/* Each winning-number cell:
+   number on top, prize underneath */
+
+.winning-result-cell {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
+  line-height: 1;
+}
+
+.result-number {
+  display: block;
+
+  font-size: clamp(15px, 2vw, 22px);
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+.result-prize {
+  display: block;
+
+  margin-top: 8px;
+
+  font-size: clamp(9px, 1.15vw, 13px);
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+/* =================================
+   RESULT WINDOW
+================================= */
+
+.game-result-modal {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1000000;
+
+  display: grid;
+  place-items: center;
+
+  pointer-events: none;
+}
+
+.game-result-modal[hidden] {
+  display: none;
+}
+
+.game-result-window {
+  width: min(86vw, 470px);
+
+  border:
+    3px outset #ddd;
+
+  background: #c0c0c0;
+
+  color: #000;
+
+  font-family:
+    "Times New Roman",
+    serif;
+
+  box-shadow:
+    8px 8px 0 rgba(0,0,0,.7);
+
+  pointer-events: auto;
+}
+
+.game-result-titlebar {
+  padding: 5px 8px;
+
+  background: #000080;
+  color: #fff;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 13px;
+  font-weight: bold;
+
+  text-align: left;
+}
+
+.game-result-body {
+  padding: 28px;
+
+  text-align: center;
+}
+
+.game-result-body h2 {
+  margin:
+    0 0 18px;
+
+  font-family:
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(28px, 5vw, 52px);
+}
+
+.game-result-body p {
+  margin:
+    0 0 28px;
+
+  font-size:
+    20px;
+}
+
+.game-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.game-result-actions a,
+.game-result-actions button {
+  padding: 8px 12px;
+
+  border:
+    3px outset #ddd;
+
+  background: #c0c0c0;
+  color: #000;
+
+  font-family:
+    "Times New Roman",
+    serif;
+
+  font-size: 16px;
+
+  text-decoration: none;
+
+  cursor: pointer !important;
+}
+
+.game-result-actions a:active,
+.game-result-actions button:active {
+  border-style: inset;
+}
+
+/* =================================
+   WIN CELEBRATION
+================================= */
+
+.win-canvas {
+  position: fixed;
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 900000;
+
+  pointer-events: none;
+
+  display: none;
+}
+
+.win-canvas.is-active {
+  display: block;
+}

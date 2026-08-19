@@ -983,3 +983,174 @@ h3 {
 
 }
 
+
+/* =================================
+   GAME TRANSITION
+================================= */
+
+.game-transition {
+  position: fixed;
+  inset: 0;
+
+  z-index: 999999;
+
+  display: none;
+
+  overflow: hidden;
+
+  background: #000;
+
+  pointer-events: none;
+}
+
+
+.game-transition.is-active {
+  display: block;
+
+  animation:
+    transitionGlitch 700ms steps(2, end);
+}
+
+
+.game-transition-noise {
+  position: absolute;
+  inset: -10%;
+
+  z-index: 2;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.13) 0,
+      rgba(255,255,255,.13) 1px,
+      rgba(0,0,0,.15) 1px,
+      rgba(0,0,0,.15) 4px
+    );
+
+  mix-blend-mode: difference;
+
+  animation:
+    glitchNoise 90ms steps(2, end) infinite;
+}
+
+
+.game-transition-image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0;
+
+  z-index: 1;
+}
+
+
+.game-transition.is-active
+.game-transition-image {
+  animation:
+    flashGameImage 700ms steps(1, end);
+}
+
+
+@keyframes flashGameImage {
+
+  0% {
+    opacity: 0;
+  }
+
+  22% {
+    opacity: 0;
+  }
+
+  23% {
+    opacity: 1;
+  }
+
+  42% {
+    opacity: 1;
+  }
+
+  43% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+}
+
+
+@keyframes transitionGlitch {
+
+  0% {
+    transform: translate(0);
+    filter: none;
+  }
+
+  15% {
+    transform: translate(-12px, 3px);
+    filter:
+      contrast(2)
+      saturate(2);
+  }
+
+  30% {
+    transform: translate(15px, -5px);
+    filter:
+      hue-rotate(90deg)
+      contrast(1.8);
+  }
+
+  48% {
+    transform:
+      translate(-8px, 4px)
+      skewX(3deg);
+
+    filter:
+      invert(.2)
+      saturate(3);
+  }
+
+  65% {
+    transform: translate(11px, -2px);
+  }
+
+  80% {
+    transform: translate(-5px, 2px);
+    filter: contrast(2.5);
+  }
+
+  100% {
+    transform: translate(0);
+    filter: none;
+  }
+
+}
+
+
+@keyframes glitchNoise {
+
+  0% {
+    transform:
+      translate(0, 0)
+      scale(1.1);
+  }
+
+  50% {
+    transform:
+      translate(-10px, 4px)
+      scale(1.15);
+  }
+
+  100% {
+    transform:
+      translate(7px, -3px)
+      scale(1.1);
+  }
+
+}

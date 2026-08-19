@@ -120,3 +120,49 @@ document
     });
 
   });
+
+ /* =================================
+   GAME TRANSITION
+================================= */
+
+const gameTransition =
+  document.getElementById("game-transition");
+
+
+document
+  .querySelectorAll(".game-link")
+  .forEach((link) => {
+
+    link.addEventListener("click", (event) => {
+
+      event.preventDefault();
+
+      const destination = link.href;
+
+
+      if (!gameTransition) {
+
+        window.location.href =
+          destination;
+
+        return;
+
+      }
+
+
+      gameTransition.classList.add(
+        "is-active"
+      );
+
+
+      setTimeout(() => {
+
+        window.location.href =
+          destination;
+
+      }, 700);
+
+    });
+
+  });
+  

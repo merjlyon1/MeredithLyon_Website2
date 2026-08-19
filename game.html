@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Game — Meredith Lyon</title>
+
+  <link
+    rel="stylesheet"
+    href="game.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =================================
+       PENNY CURSOR
+  ================================== -->
+
+  <div
+    class="penny-cursor"
+    id="penny-cursor"
+    aria-hidden="true"
+  >
+
+    <img
+      src="assets/penny.png"
+      alt=""
+    >
+
+  </div>
+
+
+  <!-- =================================
+       TICKET
+  ================================== -->
+
+  <div class="ticket-stage">
+    <div
+  class="scratch-debris"
+  id="scratch-debris"
+  aria-hidden="true"
+></div>
+
+    <div
+      class="ticket"
+      id="ticket"
+    >
+
+
+      <!-- =============================
+           FRONT
+      ============================== -->
+
+  <div class="ticket-face ticket-front">
+
+  <!-- Full ticket artwork -->
+  <img
+    class="ticket-art"
+    id="ticket-front-art"
+    src="assets/ticket-front.webp"
+    alt="More Money Less Problems scratch ticket"
+  >
+
+  <!-- Silver underneath the scratchable artwork -->
+  <div
+    class="scratch-silver-layer"
+    id="scratch-silver-layer"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Scratchable copy of selected artwork areas -->
+  <canvas
+    id="scratch-canvas"
+    class="scratch-canvas"
+  ></canvas>
+
+  <!-- Return -->
+  <a
+    class="game-return-button"
+    href="index.html"
+    aria-label="Return to Meredith Lyon website"
+  ></a>
+
+  <!-- Flip -->
+  <button
+    class="ticket-logo-button ticket-logo-front"
+    type="button"
+    aria-label="View back of ticket"
+  ></button>
+
+</div>
+
+
+      <!-- =============================
+           BACK
+      ============================== -->
+
+      <div class="ticket-face ticket-back">
+
+        <img
+          class="ticket-art"
+          src="assets/ticket-back.webp"
+          alt="Back of More Money Less Problems scratch ticket"
+        >
+
+
+        <!-- Same logo flips back to front -->
+
+        <button
+          class="ticket-logo-button ticket-logo-back"
+          type="button"
+          aria-label="Return to front of ticket"
+        ></button>
+
+      </div>
+
+
+    </div>
+
+    
+
+    <button
+      class="check-ticket-button"
+      id="check-ticket-button"
+      type="button"
+      hidden
+    >
+      CHECK TICKET
+    </button>
+
+
+  </div>
+
+  <div
+  class="game-result-modal"
+  id="game-result-modal"
+  hidden
+>
+
+  <div class="game-result-window">
+
+    <div class="game-result-titlebar">
+      MAKING MONEY LOTTERY
+    </div>
+
+    <div class="game-result-body">
+
+      <h2 id="game-result-title">
+        RESULT
+      </h2>
+
+      <p id="game-result-message"></p>
+
+      <div class="game-result-actions">
+
+        <a
+          href="cash-in.html"
+          id="cash-in-button"
+        >
+          CASH IN
+        </a>
+
+        <button
+          type="button"
+          id="play-again-button"
+        >
+          PLAY AGAIN
+        </button>
+
+        <a href="index.html">
+          RETURN HOME
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<canvas
+  id="win-canvas"
+  class="win-canvas"
+  aria-hidden="true"
+></canvas>
+
+  <script src="game.js"></script>
+
+
+</body>
+
+</html>
