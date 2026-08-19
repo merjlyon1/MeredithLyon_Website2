@@ -233,35 +233,32 @@ body * {
    MOBILE
 ================================= */
 
-.ticket-stage {
-  min-height: 100vh;
-  min-height: 100svh;
+@media (max-width: 760px) {
 
-  display: grid;
-  place-items: center;
+  .ticket-stage {
+    min-height: 100vh;
+    min-height: 100svh;
 
-  padding: 30px;
+    width: 100%;
 
-  box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  perspective: 1600px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .ticket {
+    width: min(96vw, 760px);
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
 
-.ticket-front {
-  pointer-events: auto;
-}
 
-.ticket-back {
-  pointer-events: none;
-}
-
-.ticket.is-flipped .ticket-front {
-  pointer-events: none;
-}
-
-.ticket.is-flipped .ticket-back {
-  pointer-events: auto;
-}
 
 /* =================================
    SCRATCH DEBRIS
