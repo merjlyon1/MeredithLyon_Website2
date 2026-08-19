@@ -171,8 +171,8 @@ let currentGame = null;
   Adjust these whenever you want.
 */
 
-const WIN_CHANCE = 1.00;
-const DEBT_CHANCE = 0.15;
+const WIN_CHANCE = 0.15;
+const DEBT_CHANCE = 0.50;
 
 
 const positivePrizes = [
