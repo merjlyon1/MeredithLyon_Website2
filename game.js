@@ -764,6 +764,23 @@ checkTicketButton?.addEventListener(
 
     if (!currentGame) return;
 
+    if (typeof gtag === "function") {
+  gtag("event", "game_play", {
+    game_name: "more_money_less_problems",
+    outcome: currentGame.outcome
+  });
+}
+if (typeof gtag === "function") {
+  gtag("event", "game_result", {
+    game_name: "more_money_less_problems",
+    outcome: currentGame.outcome,
+    prize:
+      currentGame.winningPrize ||
+      currentGame.debtResult ||
+      "none"
+  });
+}
+
     checkTicketButton.setAttribute(
       "hidden",
       ""
