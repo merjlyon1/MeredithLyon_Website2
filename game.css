@@ -762,3 +762,20 @@ cursor: pointer !important;
 .win-canvas.is-active {
   display: block;
 }
+
+/* Hide all front-only layers when ticket is flipped */
+
+.ticket.is-flipped .ticket-front .scratch-canvas,
+.ticket.is-flipped .ticket-front .scratch-silver-layer,
+.ticket.is-flipped .ticket-front .game-return-button,
+.ticket.is-flipped .ticket-front .ticket-logo-front {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.ticket:not(.is-flipped) .ticket-front .scratch-canvas,
+.ticket:not(.is-flipped) .ticket-front .scratch-silver-layer,
+.ticket:not(.is-flipped) .ticket-front .game-return-button,
+.ticket:not(.is-flipped) .ticket-front .ticket-logo-front {
+  visibility: visible;
+}
