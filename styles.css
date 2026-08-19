@@ -60,9 +60,13 @@ button {
 .entry-screen {
   position: fixed;
   inset: 0;
+
   display: grid;
   place-items: center;
+
   min-height: 100vh;
+  min-height: 100svh;
+
   overflow: hidden;
   background: #111;
 }
@@ -1153,4 +1157,10 @@ h3 {
       scale(1.1);
   }
 
+}
+
+@media (max-width: 760px) {
+  .entry-screen {
+    min-height: 100svh;
+  }
 }

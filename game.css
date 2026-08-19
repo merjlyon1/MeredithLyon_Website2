@@ -22,9 +22,15 @@ body * {
 
 .ticket-stage {
   min-height: 100vh;
+  min-height: 100svh;
+
   display: grid;
   place-items: center;
+
   padding: 30px;
+
+  box-sizing: border-box;
+
   perspective: 1600px;
 }
 
@@ -227,16 +233,18 @@ body * {
    MOBILE
 ================================= */
 
-@media (max-width: 760px) {
+.ticket-stage {
+  min-height: 100vh;
+  min-height: 100svh;
 
-  .ticket-stage {
-    padding: 10px;
-  }
+  display: grid;
+  place-items: center;
 
-  .ticket {
-    width: min(96vw, 760px);
-  }
+  padding: 30px;
 
+  box-sizing: border-box;
+
+  perspective: 1600px;
 }
 
 .ticket-front {
