@@ -619,41 +619,106 @@ function getZoneScratchPercent(zone) {
 
 function checkScratchCompletion() {
 
-  const percentages =
-    scratchZones.map(
-      getZoneScratchPercent
-    );
+  let scratchedPixels = 0;
+  let totalPixels = 0;
 
 
-  /*
-    Helpful while we're testing.
-    Open DevTools → Console to see
-    how scratched each zone is.
-  */
+  scratchZones.forEach((zone) => {
+
+    const marginX =
+      zone.width * 0.06;
+
+    const marginY =
+      zone.height * 0.06;
+
+
+    const x =
+      Math.floor(
+        scratchCanvas.width *
+        (zone.x + marginX)
+      );
+
+    const y =
+      Math.floor(
+        scratchCanvas.height *
+        (zone.y + marginY)
+      );
+
+
+    const width =
+      Math.max(
+        1,
+        Math.floor(
+          scratchCanvas.width *
+          (
+            zone.width -
+            marginX * 2
+          )
+        )
+      );
+
+
+    const height =
+      Math.max(
+        1,
+        Math.floor(
+          scratchCanvas.height *
+          (
+            zone.height -
+            marginY * 2
+          )
+        )
+      );
+
+
+    const imageData =
+      scratchContext.getImageData(
+        x,
+        y,
+        width,
+        height
+      );
+
+
+    const pixels =
+      imageData.data;
+
+
+    for (
+      let i = 3;
+      i < pixels.length;
+      i += 4
+    ) {
+
+      totalPixels++;
+
+      if (pixels[i] < 40) {
+        scratchedPixels++;
+      }
+
+    }
+
+  });
+
+
+  const overallScratchPercent =
+    totalPixels > 0
+      ? scratchedPixels / totalPixels
+      : 0;
+
 
   console.log(
-    scratchZones.map(
-      (zone, index) => ({
-        zone: zone.id,
-
-        scratched:
-          Math.round(
-            percentages[index] * 100
-          ) + "%"
-      })
-    )
+    "TOTAL SCRATCHED:",
+    Math.round(
+      overallScratchPercent * 100
+    ) + "%"
   );
 
 
-  const allComplete =
-    percentages.every(
-      (percentage) =>
-        percentage >=
-        REQUIRED_SCRATCH_PERCENT
-    );
-
-
-  if (allComplete) {
+  if (
+    overallScratchPercent >=
+    REQUIRED_SCRATCH_PERCENT
+  ) {
 
     checkTicketButton?.removeAttribute(
       "hidden"
