@@ -1186,6 +1186,6 @@ h3 {
 
 @media (max-width: 760px) {
   .entry-name {
-    transform: translateX(-51%);
+    transform: translateX(-51.5%);
   }
 }
