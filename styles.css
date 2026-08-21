@@ -1164,3 +1164,10 @@ h3 {
     min-height: 100svh;
   }
 }
+
+@media (max-width: 760px) {
+  .entry-name {
+    white-space: nowrap;
+    font-size: clamp(24px, 8vw, 42px);
+  }
+}
