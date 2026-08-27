@@ -1182,3 +1182,77 @@ h3 {
     transform: translateX(-51.5%);
   }
 }
+
+
+/* =================================
+   PROCESS VIDEO FIX
+================================= */
+
+.process-banner {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+
+  margin: 48px auto 80px;
+
+  overflow: visible;
+}
+
+.process-banner video {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-width: 100%;
+
+  object-fit: contain;
+
+  margin: 0 auto;
+}
+
+
+/* Make sure regular process videos remain visible */
+
+.process-section video,
+.process-project video,
+.process-media video {
+  display: block;
+  position: relative;
+
+  width: 100%;
+  height: auto;
+
+  max-width: 100%;
+
+  object-fit: contain;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+
+  .process-banner {
+    width: 100%;
+    max-width: 100%;
+
+    margin:
+      32px auto
+      64px;
+
+    padding: 0;
+
+    box-sizing: border-box;
+  }
+
+  .process-banner video {
+    width: 100%;
+    height: auto;
+
+    max-height: none;
+  }
+
+}
