@@ -1256,3 +1256,40 @@ h3 {
   }
 
 }
+
+@media (max-width: 760px) {
+
+  .process-banner,
+  .process-media,
+  .process-project,
+  .process-section {
+    position: relative !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  .process-banner video,
+  .process-media video,
+  .process-project video,
+  .process-section video {
+    position: relative !important;
+    inset: auto !important;
+
+    display: block !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    max-width: 100% !important;
+    max-height: none !important;
+
+    object-fit: contain !important;
+
+    margin: 0 auto !important;
+  }
+
+  .process-banner {
+    margin-bottom: 72px !important;
+  }
+}
